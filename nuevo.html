@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Equipos e Instructores</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Equipos e Instructores</h1>
+
+        <!-- Sección de formularios en dos columnas -->
+        <div class="row">
+            <!-- Columna izquierda -->
+            <div class="col">
+                <h2>Agregar Equipo</h2>
+                <input type="text" id="inputNombreEquipo" placeholder="Nombre del Equipo">
+                <input type="text" id="inputMarcaEquipo" placeholder="Marca del Equipo">
+                <input type="number" id="inputCantidadEquipo" placeholder="Cantidad">
+                <button onclick="agregarEquipo()">Agregar Equipo</button>
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="col">
+                <h2>Agregar Instructor</h2>
+                <input type="text" id="inputIdInstructor" placeholder="ID del Instructor">
+                <input type="text" id="inputNombreInstructor" placeholder="Nombre del Instructor">
+                <button onclick="agregarInstructor()">Agregar Instructor</button>
+            </div>
+        </div>
+
+        <!-- Tablas debajo de los formularios -->
+        <div class="row">
+            <div class="col">
+                <h3>Equipos en Inventario</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Marca</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaEquipos"></tbody>
+                </table>
+            </div>
+
+            <div class="col">
+                <h3>Instructores Registrados</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaInstructores"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Segunda fila de formularios -->
+        <div class="row">
+            <div class="col">
+                <h2>Registrar Préstamo</h2>
+                <input type="text" id="inputNombreEquipoPrestar" placeholder="Nombre del Equipo">
+                <input type="text" id="inputMarcaEquipoPrestar" placeholder="Marca del Equipo">
+                <input type="number" id="inputCantidadPrestar" placeholder="Cantidad">
+                <input type="text" id="inputIdInstructorPresta" placeholder="ID del Instructor">
+                <button onclick="agregarPrestamo()">Registrar Préstamo</button>
+            </div>
+
+            <div class="col">
+                <h2>Devolver Equipo</h2>
+                <input type="text" id="inputIdInstructorDevolucion" placeholder="ID del Instructor">
+                <input type="text" id="inputNombreEquipoDevolver" placeholder="Nombre del Equipo">
+                <input type="text" id="inputMarcaEquipoDevolver" placeholder="Marca del Equipo">
+                <input type="number" id="inputCantidadDevolver" placeholder="Cantidad">
+                <button onclick="devolverPrestamo()">Devolver Equipo</button>
+            </div>
+        </div>
+
+        <!-- Tablas de préstamos y devoluciones -->
+        <div class="row">
+            <div class="col">
+                <h3>Préstamos de Equipos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Instructor</th>
+                            <th>Equipo</th>
+                            <th>Marca</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaPrestamos"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/micodigo.js"></script>
+</body>
+</html>
