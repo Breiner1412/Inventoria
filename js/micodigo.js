@@ -7,12 +7,12 @@ function guardarDatos() {
     localStorage.setItem("equipos", JSON.stringify(equipos));
     localStorage.setItem("instructores", JSON.stringify(instructores));
     localStorage.setItem("prestamos", JSON.stringify(prestamos));
-}
+};
 
 // Función para limpiar los campos de los formularios
 function limpiarCampos(...ids) {
     ids.forEach(id => document.getElementById(id).value = "");
-}
+};
 
 // Agregar un nuevo equipo
 function agregarEquipo() {
@@ -121,18 +121,18 @@ function devolverPrestamo() {
 
     if (!idInstructor || !equipo || !marca || isNaN(cantidad) || cantidad <= 0) {
         return Swal.fire("Error", "Todos los campos son obligatorios y la cantidad debe ser mayor a 0", "error");
-    }
+    };
 
     // Buscar el préstamo
     let prestamoIndex = prestamos.findIndex(p => p.id === idInstructor && p.equipo === equipo && p.marca === marca);
     if (prestamoIndex === -1) {
         return Swal.fire("Error", "No se encontró un préstamo con esos datos", "error");
-    }
+    };
 
     // Verificar que la cantidad a devolver no sea mayor a la prestada
     if (cantidad > prestamos[prestamoIndex].cantidad) {
         return Swal.fire("Error", "Cantidad a devolver mayor a la prestada", "error");
-    }
+    };
 
     // Restar la cantidad devuelta del préstamo
     prestamos[prestamoIndex].cantidad -= cantidad;
@@ -140,13 +140,13 @@ function devolverPrestamo() {
     // Si la cantidad llega a 0, eliminar el préstamo
     if (prestamos[prestamoIndex].cantidad === 0) {
         prestamos.splice(prestamoIndex, 1);
-    }
+    };
 
     // Actualizar el stock del equipo devuelto
     let equipoInventario = equipos.find(e => e.nombre === equipo && e.marca === marca);
     if (equipoInventario) {
         equipoInventario.cantidad += cantidad;
-    }
+    };
 
     // Guardar cambios y actualizar tablas
     guardarDatos();
@@ -154,4 +154,4 @@ function devolverPrestamo() {
     limpiarCampos("inputIdInstructorDevolucion", "inputNombreEquipoDevolver", "inputMarcaEquipoDevolver", "inputCantidadDevolver");
     imprimirPrestamos();
     imprimirEquipos();
-}
+};
